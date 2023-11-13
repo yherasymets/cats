@@ -18,16 +18,20 @@ Pay special attention to code quality and error handling.
 
 ### How to run app
 
-#### Use makefile 
+#### Use makefile: 
 
 - For build program run command `make build`
 - For program execution run command `make run`
 - For clear cache and remove binary file use command `make clear` 
 
-#### Build and run manually
+#### Build and run manually:
 
 1. Build
 `$ go build -o ./bin/app ./cmd`  
 
 2. Run
 `$ ./bin/app`
+
+#### Run test:
+
+- `$ go test -v ./`
