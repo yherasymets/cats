@@ -25,5 +25,5 @@ func main() {
 		log.Printf("Error writing to JSON file: %v", err)
 		return
 	}
-	log.Println("Data was recorded to out.json")
+	log.Println("Data was recorded to ./bin/out.json")
 }
