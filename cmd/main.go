@@ -15,13 +15,13 @@ func main() {
 	}
 
 	// Grouping of breeds by country of origin
-	groupedBreeds := cats.GroupBreedsByCountry(catsData)
+	breeds := cats.GroupBreedsByCountry(catsData)
 
 	// Sorting breeds by length
-	cats.SortBreedsByLength(groupedBreeds)
+	cats.SortBreedsByLength(breeds)
 
 	// Writing data to JSON file
-	if err := cats.WriteToJSON(groupedBreeds); err != nil {
+	if err := cats.WriteToJSON(breeds); err != nil {
 		log.Printf("Error writing to JSON file: %v", err)
 		return
 	}

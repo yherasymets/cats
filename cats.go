@@ -63,17 +63,17 @@ func GroupBreedsByCountry(cats *Cats) map[string][]string {
 }
 
 // SortBreedsByLength is function for sort breeds by length
-func SortBreedsByLength(groupedBreeds map[string][]string) {
-	for country := range groupedBreeds {
-		sort.Slice(groupedBreeds[country], func(i, j int) bool {
-			return len(groupedBreeds[country][i]) < len(groupedBreeds[country][j])
+func SortBreedsByLength(breeds map[string][]string) {
+	for country := range breeds {
+		sort.Slice(breeds[country], func(i, j int) bool {
+			return len(breeds[country][i]) < len(breeds[country][j])
 		})
 	}
 }
 
 // WriteToJSON is function for write data into JSON file
-func WriteToJSON(groupedBreeds map[string][]string) error {
-	data, err := json.MarshalIndent(groupedBreeds, "", " ")
+func WriteToJSON(breeds map[string][]string) error {
+	data, err := json.MarshalIndent(breeds, "", " ")
 	if err != nil {
 		return fmt.Errorf("can't marshal data to JSON: %w", err)
 	}
