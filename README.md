@@ -34,4 +34,4 @@ Pay special attention to code quality and error handling.
 
 #### Run test:
 
-- `$ go test -v ./`
+- `$ go test -v ./...`
