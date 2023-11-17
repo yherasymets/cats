@@ -1,9 +1,12 @@
+.PHONY:
+.SILENT:
+
 clear:
-	@rm -rf ./bin/app
-	@go clean
+	rm -rf ./bin/app
+	go clean
 
 build:
-	@go build -o ./bin/app ./cmd
+	go build -o ./bin/app ./cmd
 
 run:
-	@./bin/app
+	./bin/app
