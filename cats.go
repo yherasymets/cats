@@ -2,12 +2,14 @@ package cats
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"os"
 	"sort"
+	"strconv"
 )
 
 const (
@@ -29,7 +31,7 @@ type Cats struct {
 }
 
 // GetCetBreeds is function for retrive a list of cat breeds via API
-func GetCetBreeds() (*Cats, error) {
+func GetCatBreeds() (*Cats, error) {
 	client := &http.Client{}
 	req, err := http.NewRequest(http.MethodGet, apiURL, nil)
 	if err != nil {
@@ -39,14 +41,15 @@ func GetCetBreeds() (*Cats, error) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	if resp.StatusCode != http.StatusOK {
+		return nil, errors.New("unexpected status code: " + strconv.Itoa(resp.StatusCode))
+	}
 	rawBody, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, fmt.Errorf("can't read response body: %w", err)
 	}
 	defer resp.Body.Close()
-
-	var cats *Cats
+	cats := new(Cats)
 	if err := json.Unmarshal(rawBody, &cats); err != nil {
 		return nil, fmt.Errorf("can't unmarshal JSON: %w", err)
 	}
