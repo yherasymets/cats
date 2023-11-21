@@ -8,7 +8,7 @@ import (
 
 func main() {
 	// Getting a list of cat breeds via API
-	catsData, err := cats.GetCetBreeds()
+	catsData, err := cats.GetCatBreeds()
 	if err != nil {
 		log.Printf("Failed to retrive the list of cat breeds: %v", err)
 		return
