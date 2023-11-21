@@ -6,14 +6,6 @@ Group all breed names by origin in the country,
 sort the breed name by length and write the resulting data to the JSON file out.json.
 Pay special attention to code quality and error handling.
 
--------------------------------------------------------------------------------------
-
-На языке Go разработать консольное приложение, 
-которое будет получать через API (https://catfact.ninja/breeds) список пород кошек. 
-Сгруппировать все названия пород по стране происхождения, 
-отсортировать названия пород по длине и записать результирующие данные в JSON-файл out.json.
-Отдельное внимание уделить качеству кода и обработке ошибок.
-
 --------------------------------------------------------------------------------------
 
 ### How to run app
